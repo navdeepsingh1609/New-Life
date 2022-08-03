@@ -12,7 +12,7 @@ relevant profiles, Instant Chatting provision for donations or for Notices.
 
 <h2 id="credits"> :minidisc: Demo</h2>
 
-- [Apk Link](https://github.com/navdeepsingh1609)
+- [Apk Link](https://drive.google.com/uc?export=download&id=1A4f3JbY_6fg9naVysMVv9sgZr8yQkFxF)
 - [Live Web Link](https://github.com/siyaadutta)
 
 
