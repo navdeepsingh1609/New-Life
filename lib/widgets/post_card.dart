@@ -1,6 +1,4 @@
-import 'dart:io';
 import 'dart:ui';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:new_life/model/users.dart';
@@ -84,7 +82,9 @@ class _PostCardState extends State<PostCard> {
                       children: [
                         Text(
                           widget.snap['username'],
-                          style: const TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Nutino'),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Nutino'),
                         )
                       ],
                     ),
@@ -116,7 +116,9 @@ class _PostCardState extends State<PostCard> {
                                     child: Container(
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 12, horizontal: 16),
-                                      child: Text(e,style: TextStyle(fontFamily: 'Nutino')),
+                                      child: Text(e,
+                                          style:
+                                              TextStyle(fontFamily: 'Nutino')),
                                     ),
                                   ),
                                 )
@@ -173,7 +175,7 @@ class _PostCardState extends State<PostCard> {
               ],
             ),
           ),
-          //Likes Comment Scetion
+          //Likes Comment Section
           Row(
             children: [
               LikeAnimation(
@@ -189,24 +191,20 @@ class _PostCardState extends State<PostCard> {
                       : const Icon(Icons.favorite_border),
                 ),
               ),
-              IconButton(
-                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => CommentsScreen(
-                    snap: widget.snap,
-                  ),
-                )),
-                icon: const Icon(Icons.comment_outlined),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.send),
-              ),
               Expanded(
-                  child: Align(
-                alignment: Alignment.bottomRight,
-                child: IconButton(
-                    onPressed: () {}, icon: const Icon(Icons.bookmark_border)),
-              ))
+                child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: IconButton(
+                    onPressed: () =>
+                        Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => CommentsScreen(
+                        snap: widget.snap,
+                      ),
+                    )),
+                    icon: const Icon(Icons.comment_outlined),
+                  ),
+                ),
+              ),
             ],
           ),
           //Description & No. of comments
@@ -231,29 +229,36 @@ class _PostCardState extends State<PostCard> {
                   padding: const EdgeInsets.only(top: 8),
                   child: RichText(
                     text: TextSpan(
-                      style: TextStyle(fontFamily: 'Nutino',color: Theme.of(context).primaryColor),
+                      style: TextStyle(
+                          fontFamily: 'Nutino',
+                          color: Theme.of(context).primaryColor),
                       children: [
                         TextSpan(
                             text: widget.snap['username'],
-                            style:
-                                const TextStyle(fontFamily: 'Nutino',fontWeight: FontWeight.bold)),
+                            style: const TextStyle(
+                                fontFamily: 'Nutino',
+                                fontWeight: FontWeight.bold)),
                         TextSpan(text: ' ${widget.snap['description']}')
                       ],
                     ),
                   ),
                 ),
                 InkWell(
-                  onTap: () {Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => CommentsScreen(
-                      snap: widget.snap,
-                    ),
-                  ));},
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => CommentsScreen(
+                        snap: widget.snap,
+                      ),
+                    ));
+                  },
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 4),
                     child: Text(
                       "View all $commentsLength comments",
-                      style:
-                          const TextStyle(fontFamily: 'Nutino',fontSize: 16, color: secondaryColor),
+                      style: const TextStyle(
+                          fontFamily: 'Nutino',
+                          fontSize: 16,
+                          color: secondaryColor),
                     ),
                   ),
                 ),
@@ -262,7 +267,10 @@ class _PostCardState extends State<PostCard> {
                     DateFormat.yMMMd().format(
                       widget.snap['datePublished'].toDate(),
                     ),
-                    style: const TextStyle(fontFamily: 'Nutino',fontSize: 12, color: secondaryColor),
+                    style: const TextStyle(
+                        fontFamily: 'Nutino',
+                        fontSize: 12,
+                        color: secondaryColor),
                   ),
                 ),
               ],

@@ -72,6 +72,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
           )
         : Scaffold(
             appBar: AppBar(
+              elevation: 0,
+              bottom: PreferredSize(
+                  child: Container(
+                    color: Colors.white.withOpacity(0.2),
+                    height: 1.0,
+                  ),
+                  preferredSize: Size.fromHeight(1.0)),
               iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
               backgroundColor: Colors.black54.withOpacity(0.8),
               title: Center(
@@ -83,6 +90,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             body: ListView(
               children: [
+
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(

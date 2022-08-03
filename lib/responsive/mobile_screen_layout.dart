@@ -50,38 +50,35 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
         onPageChanged: onPageChanged,
       ),
       bottomNavigationBar: CupertinoTabBar(
-        height: 60,
         backgroundColor: Colors.black54.withOpacity(0.8),
         activeColor: Colors.white,
         inactiveColor: Colors.white,
-
         items: [
           BottomNavigationBarItem(
             label: "Home",
-              icon: SvgPicture.asset(
-                  "assets/home.svg",
-                  height: 40.0,
-                  width: 40.0,
-                  allowDrawingOutsideViewBox: true,
-              ),
-              //backgroundColor: Theme.of(context).primaryColor
+            icon: SvgPicture.asset(
+              "assets/home.svg",
+              height: 30.0,
+              width: 30.0,
+              allowDrawingOutsideViewBox: true,
+            ),
+            //backgroundColor: Theme.of(context).primaryColor
           ),
           BottomNavigationBarItem(
-            label: "Search",
+              label: "Search",
               icon: SvgPicture.asset(
                 "assets/search.svg",
-                height: 40.0,
-                width: 40.0,
+                height: 30.0,
+                width: 30.0,
                 allowDrawingOutsideViewBox: true,
               ),
               backgroundColor: Theme.of(context).primaryColor),
           BottomNavigationBarItem(
               label: "Upload",
               icon: SvgPicture.asset(
-
                 "assets/add.svg",
-                height: 40.0,
-                width: 40.0,
+                height: 30.0,
+                width: 30.0,
                 allowDrawingOutsideViewBox: true,
               ),
               backgroundColor: Theme.of(context).primaryColor),
@@ -89,8 +86,8 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
               label: "Chat",
               icon: SvgPicture.asset(
                 "assets/Chat_5.svg",
-                height: 45.0,
-                width: 40.0,
+                height: 30.0,
+                width: 30.0,
                 allowDrawingOutsideViewBox: true,
               ),
               backgroundColor: Theme.of(context).primaryColor),
@@ -98,10 +95,12 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
               label: "Profile",
               icon: SvgPicture.asset(
                 "assets/Profile.svg",
-                height: 40.0,
-                width: 40.0,
+                height: 30.0,
+                width: 30.0,
+                color: Theme.of(context).primaryColor,
                 allowDrawingOutsideViewBox: true,
               ),
+
               backgroundColor: Theme.of(context).primaryColor),
         ],
         onTap: navigationTapped,

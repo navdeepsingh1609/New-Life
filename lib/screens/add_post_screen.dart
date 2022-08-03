@@ -127,8 +127,14 @@ class _AddPostScreenState extends State<AddPostScreen> {
         ? Scaffold(
       appBar: AppBar(
         elevation: 0,
+        bottom: PreferredSize(
+            child: Container(
+              color: Colors.white.withOpacity(0.2),
+              height: 1.0,
+            ),
+            preferredSize: Size.fromHeight(1.0)),
         backgroundColor: Colors.black54.withOpacity(0.8),
-        title: Text("Add Post",style: TextStyle(fontFamily: 'Nutino',fontWeight: FontWeight.bold,color: Colors.white,),),
+        title: Text("Add Post",style: TextStyle(fontFamily: 'Nutino',fontWeight: FontWeight.bold,color: Colors.white,fontSize: 25),),
         centerTitle: true,
         
       ),

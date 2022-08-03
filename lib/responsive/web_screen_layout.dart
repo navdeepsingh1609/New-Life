@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_life/utils/global_variables.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../utils/colors.dart';
 
 class WebSreenLayout extends StatefulWidget {
@@ -42,68 +41,86 @@ class _WebSreenLayoutState extends State<WebSreenLayout> {
 
   @override
   Widget build(BuildContext context) {
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
     return Scaffold(
+      backgroundColor: isDarkMode?Colors.black54:Colors.white,
       appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: isDarkMode?Colors.black:Colors.white.withOpacity(0.5),
         centerTitle: false,
-        title: SvgPicture.asset(
-          "assets/NewLife.svg",
-          color: primaryColor,
-          height: 32,
+        title: Row(
+          children: [
+
+            SvgPicture.asset(
+            "assets/NewLife.svg",
+            // color: primaryColor,
+            height: 50,
+          ),
+        !isDarkMode?Image.asset('assets/NewLifeTextDark.png',width: 80,):Image.asset('assets/NewLifeText.png',width: 80,),
+            ]
         ),
         actions: [
           IconButton(
             onPressed: () => navigationTapped(0),
             icon: SvgPicture.asset(
               "assets/home.svg",
-              height: 40.0,
-              width: 40.0,
-              allowDrawingOutsideViewBox: true,
+              height: 100.0,
+              width: 100.0,
+              //allowDrawingOutsideViewBox: true,
             ),
           ),
+          SizedBox(width: 20,),
           IconButton(
             onPressed: () => navigationTapped(1),
-            icon: SvgPicture.asset(
-              "assets/search.svg",
-              height: 40.0,
-              width: 40.0,
-              allowDrawingOutsideViewBox: true,
-            ),
+            iconSize: 25,
+              icon:Image.asset('assets/search.png')
+            //Icon(Icons.search_sharp,color: Colors.deepOrangeAccent,)
+
+            //   (
+            //   "assets/search.svg",
+            //   height: 50.0,
+            //   width: 50.0,
+            //   allowDrawingOutsideViewBox: true,
+            // ),
           ),
+          SizedBox(width: 20,),
           IconButton(
             onPressed: () => navigationTapped(2),
-            icon: SvgPicture.asset(
-              "assets/add.svg",
-              height: 40.0,
-              width: 40.0,
-              allowDrawingOutsideViewBox: true,
-            ),
+              iconSize: 20,
+              icon:Image.asset('assets/upload.png')
+            // icon: SvgPicture.asset(
+            //   "assets/add.svg",
+            //   height: 50.0,
+            //   width: 50.0,
+            //   allowDrawingOutsideViewBox: true,
+            // ),
           ),
+          SizedBox(width: 20,),
           IconButton(
             onPressed: () => navigationTapped(3),
-            icon: SvgPicture.asset(
-              "assets/icons/Chat.svg",
-              height: 40.0,
-              width: 40.0,
-              allowDrawingOutsideViewBox: true,
-            ),
+              iconSize: 20,
+              icon:Image.asset('assets/msg.png')
+            // icon: SvgPicture.asset(
+            //   "assets/Chat_5.svg",
+            //   height: 50.0,
+            //   width: 50.0,
+            //   allowDrawingOutsideViewBox: true,
+            // ),
           ),
+          SizedBox(width: 20,),
           IconButton(
             onPressed: () => navigationTapped(4),
-            icon: SvgPicture.asset(
-              "assets/profile.svg",
-              height: 40.0,
-              width: 40.0,
-              allowDrawingOutsideViewBox: true,
-            ),
+              iconSize: 25,
+              icon:Image.asset('assets/profile.png')
+            // icon: SvgPicture.asset(
+            //   "assets/Profile.svg",
+            //   height: 30.0,
+            //   width: 30.0,
+            //   color: Theme.of(context).primaryColor,
+            //   allowDrawingOutsideViewBox: true,
+            // ),
           ),
-          IconButton(
-            onPressed: () => navigationTapped(5),
-            icon: Icon(
-              Icons.messenger_outline,
-              color: _page == 5 ? primaryColor : secondaryColor,
-            ),
-          )
+          SizedBox(width: 20,),
         ],
       ),
       body: PageView(
